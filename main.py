@@ -1,5 +1,7 @@
 import discord
 
+import bot_code
+
 client = discord.Client()
 
 commands = ['#dajpicke', '#dajkurac', '#cao']
@@ -39,4 +41,4 @@ async def on_message(message):
         await message.channel.send(printcommands())
 
 
-client.run('')
+client.run(bot_code.bot_code)
