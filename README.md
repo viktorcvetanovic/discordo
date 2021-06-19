@@ -2,9 +2,11 @@
 Discord bot
 Reusable bot for every type of discord server,
 you can find here a list of commands:
--
--
--
+
+- #sendmail-work in progress
+- #songurl-work in progress
+- #
+
 Instructions:
 To made this bot work you will need to create a 
 bot_code.py file and add variable bot_code with your server code.
