@@ -1,3 +1,3 @@
-from mail_service import MailService
+from service.mail_service import MailService
 
 

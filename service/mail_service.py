@@ -9,18 +9,18 @@ class MailService:
         self.client = client
         self.channel = channel
 
-    def callMail(self):
+    async def callMail(self):
         await self.channel.send('Type your mail:')
 
         def check(m):
             return m.channel == self.channel
 
-        your_email: Message = await self.self.client.wait_for('self.message', check=check)
+        your_email: Message = await self.client.wait_for('message', check=check)
         await self.channel.send('Type mail to send:')
-        mail: Message = await  self.client.wait_for('self.message', check=check)
-        await self.channel.send('Type self.message:')
-        mess: Message = await  self.client.wait_for('self.message', check=check)
-        await  self.channel.send(
+        mail: Message = await  self.client.wait_for('message', check=check)
+        await self.channel.send('Type message:')
+        mess: Message = await  self.client.wait_for('message', check=check)
+        await self.channel.send(
             self.message.author.name + " have typed \n" + "Your email: " + your_email.content + "\n" + "To send email: " + mail.content + "\n" + "Message content: " + mess.content)
         sender = MailSender(your_email.content, mail.content, mess.content)
         return_code = sender.send_mail()

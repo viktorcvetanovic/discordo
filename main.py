@@ -1,6 +1,6 @@
 import discord
 from config import bot_code
-from helper.helper import Helper
+from helpers import Helper
 
 client = discord.Client()
 
@@ -13,7 +13,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     helper = Helper(message, client)
-    helper.check_message()
+    await helper.check_message()
 
 
 client.run(bot_code.bot_code)
