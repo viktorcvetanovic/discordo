@@ -39,4 +39,4 @@ async def on_message(message):
         await message.channel.send(printcommands())
 
 
-client.run('ODEyNzUzNTEzMTIxMzE2OTI1.YDFVsQ.DSPNeCaypidaUEAkhqKPRpJTwbU')
+client.run('')
