@@ -22,7 +22,7 @@ class Helper:
         if self.message.content.startswith(Helper.commands[0]):
             channel = self.message.channel
             service = MailService(self.message, self.client, channel)
-            await service.callMail()
+            await service.send_mail()
 
         elif self.message.content.startswith(self.commands[1]):
             await self.message.channel.send(print_all_commands())

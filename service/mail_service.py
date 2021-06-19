@@ -9,7 +9,7 @@ class MailService:
         self.client = client
         self.channel = channel
 
-    async def callMail(self):
+    async def send_mail(self):
         def check(m):
             return m.channel == self.channel
 
@@ -22,7 +22,7 @@ class MailService:
         await self.channel.send(
             self.message.author.name + " have typed \n" + "Your email: " + your_email.content + "\n" + "To send email: " + mail.content + "\n" + "Message content: " + mess.content)
         sender = MailSender(your_email.content, mail.content, mess.content)
-        return_code = sender.send_mail()
+        return_code = sender.send()
         if return_code == 1:
             await self.message.self.channel.send('Sucessful mail send  ' + self.message.author.name)
         else:
