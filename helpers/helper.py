@@ -1,4 +1,5 @@
 from service import MailService
+from service.post_service import PostPictureService
 
 
 def print_all_commands():
@@ -9,7 +10,7 @@ def print_all_commands():
 
 
 class Helper:
-    commands = ['#sendmail', '#commands']
+    commands = ['.sendmail', '.commands', '.postpicture', '.c']
 
     def __init__(self, message, client):
         self.message = message
@@ -26,3 +27,11 @@ class Helper:
 
         elif self.message.content.startswith(self.commands[1]):
             await self.message.channel.send(print_all_commands())
+
+        elif self.message.content.startswith(self.commands[2]):
+            channel = self.message.channel
+            post_picture = PostPictureService(channel, self.client)
+            await  post_picture.post()
+        elif self.message.content.startswith(self.commands[3]):
+                for msg in await self.message.channel.history(limit=10).flatten():
+                    await msg.delete()

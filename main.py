@@ -1,8 +1,9 @@
 import discord
+
 from config import bot_code
 from helpers import Helper
 
-client = discord.Client()
+client = discord.Client(command_prefix='.')
 
 
 @client.event
