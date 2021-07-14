@@ -1,6 +1,3 @@
-from discord import Message
-
-
 class MessageDeleter:
 
     def __init__(self, message, channel, client):
@@ -18,5 +15,8 @@ class MessageDeleter:
 
     async def delete(self):
         await self.get_message_number()
-        for msg in await self.message.channel.history(limit=self.message_number).flatten():
-            await msg.delete()
+        if self.message_number < 300:
+            for msg in await self.message.channel.history(limit=self.message_number).flatten():
+                await msg.delete()
+        else:
+            await self.channel.send('```Too big number limit is 300```')

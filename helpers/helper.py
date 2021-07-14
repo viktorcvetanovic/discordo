@@ -10,7 +10,7 @@ def print_all_commands():
 
 
 class Helper:
-    commands = ['.sendmail', '.commands', '.postpicture', '.c']
+    commands = ['.sendmail', '.commands', '.postpicture', '.clear']
 
     def __init__(self, message, client):
         self.message = message

@@ -21,8 +21,8 @@ class PostPictureService:
         password: Message = await self.client.wait_for('message', check=check)
         await self.channel.send('Upload your picture')
         picture_path: Message = await self.client.wait_for('message', check=check)
-        imageName = str(uuid.uuid4()) + '.jpg'
-        await self.channel.message.attachments[0].save(imageName)
+        image_name = str(uuid.uuid4()) + '.jpg'
+        await self.channel.message.attachments[0].save(image_name)
         caption: Message = await self.client.wait_for('message', check=check)
         await self.channel.send('We will upload picture now')
         post_picture = PostPicture()
