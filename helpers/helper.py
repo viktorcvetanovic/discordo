@@ -1,4 +1,4 @@
-from service import MailService
+from service import MailService, MessageDeleter
 from service.post_service import PostPictureService
 
 
@@ -33,5 +33,6 @@ class Helper:
             post_picture = PostPictureService(channel, self.client)
             await  post_picture.post()
         elif self.message.content.startswith(self.commands[3]):
-                for msg in await self.message.channel.history(limit=10).flatten():
-                    await msg.delete()
+            channel = self.message.channel
+            message_deleter = MessageDeleter(self.message, channel, self.client)
+            await message_deleter.delete()
